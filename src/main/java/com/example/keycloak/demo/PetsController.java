@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.validation.Valid;
 import java.util.*;
 
 @Controller
@@ -29,7 +30,7 @@ public class PetsController {
     }
 
     @PostMapping
-    public RedirectView postPet(@ModelAttribute PetDto petDto) {
+    public RedirectView postPet(@Valid @ModelAttribute PetDto petDto) {
         pets.add(petDto);
         return new RedirectView("pets");
     }

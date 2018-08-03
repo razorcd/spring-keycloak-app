@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Title</title>
     <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"/>
@@ -7,6 +7,19 @@
 <body>
 
     <div class="container">
+        <br>
+        <div sec:authorize="isAuthenticated()" class="row" >
+            You are authenticated as: <strong sec:authentication="name">unknown</strong>
+            <div>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div sec:authorize="!isAuthenticated()" class="row" >
+            <div>
+                <a href="/login">Login</a>
+            </div>
+        </div>
+
         <div class="row">
             <h1>Public list of pets</h1>
         </div>
@@ -17,6 +30,9 @@
             empty list
         </h3>
 
+        <div th:unless="${#lists.isEmpty(pets)}" class="text-center">
+            Pets count: <span th:text="${#lists.size(pets)}">unknown size</span>
+        </div>
         <div class="row" th:unless="${#lists.isEmpty(pets)}">
             <table class="table">
                 <tr th:each="pet : ${pets}">
@@ -25,7 +41,7 @@
             </table>
         </div>
 
-        <div class="row">
+        <div sec:authorize="isAuthenticated()" class="row" >
             <a href="/pets/new">Add new pet</a>
         </div>
     </div>

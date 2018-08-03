@@ -31,11 +31,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/pets").permitAll()
-                .antMatchers(HttpMethod.GET, "/pets/new").permitAll()
                 .antMatchers( "/webjars/**").permitAll()
                 .anyRequest().authenticated()
             .and()
-            .httpBasic()
+                .formLogin()
+                .defaultSuccessUrl("/pets")
+            .and()
+                .logout()
+                .logoutSuccessUrl("/pets")
+            .and()
+                .csrf().disable()
             ;
     }
 }

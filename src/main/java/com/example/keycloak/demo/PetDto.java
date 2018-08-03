@@ -1,9 +1,11 @@
 package com.example.keycloak.demo;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 public class PetDto {
 
+    @NotBlank
     private String name;
 
     public PetDto() {
