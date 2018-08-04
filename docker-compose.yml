@@ -1,0 +1,24 @@
+version: "3"
+services:
+
+  mysql-keycloak:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=keycloak
+      - MYSQL_USER=keycloak
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root_password
+    networks:
+      - keycloak-network
+
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    ports:
+    - "8080:8080"
+    networks:
+      - keycloak-network
+networks:
+  keycloak-network:
