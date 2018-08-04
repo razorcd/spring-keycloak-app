@@ -18,7 +18,7 @@ This will create a `springdemo` client and 2 users:
 ### Start application Spring application
 - run `mvn clean install` to install dependencies
 - start spring app by running `mvn spring-boot:run`
-- load app in browser with `localhost:8888/pets`
-Clicking login will redirect to keycloak login page. Keycloak will work with Spring Security to hold the session.
+- load the public page in browser at `localhost:8888/pets`
+Clicking `login` will redirect to keycloak login page. Keycloak will work with Spring Security to hold the session.
 
 
