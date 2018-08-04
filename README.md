@@ -16,15 +16,13 @@
 
 - open Keycloak in browser at `localhost:8080`
 - login with `admin`:`admin` credentials.
-- import configuration by clicking `Import` and selecting the `realm-export.json` file.
-This will create a `springdemo` client and 2 users:
-    - `user1`:`password`
-    - `admin1`:`password`
+- first add a client by clicking `Clients` and importing the file: `keycloak-configs/springdemoapp.json`
+- go to `Users` and create at least one user
 
-### Start application Spring application
+### Start application Spring application and authenticate
 - run `mvn clean install` to install dependencies
 - start spring app by running `mvn spring-boot:run`
 - load the public page in browser at `localhost:8888/pets`
-Clicking `login` will redirect to keycloak login page. Keycloak will work with Spring Security to hold the session.
+Clicking `login` will redirect to Keycloak login page. Keycloak will work with Spring Security to hold the session.
 
 
