@@ -1,3 +1,7 @@
+For Spring Server Rendering App secured with Keycloak and Spring Security visit the `server_render_app` branch:
+https://github.com/razorcd/spring-keycloak-app/tree/server_render_app
+
+
 # Spring REST API secured with Keycloak and Spring Security
 
 ### Start Keycloak manually with Docker Compose
