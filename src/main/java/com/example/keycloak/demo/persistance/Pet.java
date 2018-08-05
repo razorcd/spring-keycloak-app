@@ -1,17 +1,17 @@
-package com.example.keycloak.demo;
+package com.example.keycloak.demo.persistance;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
-public class PetDto {
+public class Pet {
 
     @NotBlank
     private String name;
 
-    public PetDto() {
+    public Pet() {
     }
 
-    public PetDto(String name) {
+    public Pet(String name) {
         this.name = name;
     }
 
@@ -27,8 +27,8 @@ public class PetDto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PetDto petDto = (PetDto) o;
-        return Objects.equals(name, petDto.name);
+        Pet pet = (Pet) o;
+        return Objects.equals(name, pet.name);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PetDto {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("PetDto{");
+        final StringBuffer sb = new StringBuffer("Pet{");
         sb.append("name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();
